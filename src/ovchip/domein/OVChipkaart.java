@@ -19,9 +19,9 @@ public class OVChipkaart {
 //    @Transient
     @ManyToMany(cascade = { CascadeType.ALL })
     @JoinTable(name = "ov_chipkaart_product",
-        joinColumns = { @JoinColumn(name = "kaart_nummer") },
-        inverseJoinColumns = { @JoinColumn(name = "product_nummer") })
-    List<Product> products = new ArrayList<>();
+    joinColumns = { @JoinColumn(name = "kaart_nummer") },
+    inverseJoinColumns = { @JoinColumn(name = "product_nummer") })
+    public List<Product> products = new ArrayList<>();
 
 
     public OVChipkaart(){}
@@ -81,6 +81,10 @@ public class OVChipkaart {
 
     public void setProducts(List<Product> products) {
         this.products = products;
+    }
+
+    public void addProduct(Product product){
+        products.add(product);
     }
 
     @Override

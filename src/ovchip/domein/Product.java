@@ -12,14 +12,14 @@ public class Product {
     private int product_nummer;
     private String naam;
     private String beschrijving;
-    private String prijs;
+    private int prijs;
     @ManyToMany(mappedBy = "products")
     List<OVChipkaart> ovkaarten = new ArrayList<>();
 
     public Product(){}
 
 
-    public Product(int product_nummer, String naam, String beschrijving, String prijs) {
+    public Product(int product_nummer, String naam, String beschrijving, int prijs) {
         this.product_nummer = product_nummer;
         this.naam = naam;
         this.beschrijving = beschrijving;
@@ -50,11 +50,11 @@ public class Product {
         this.beschrijving = beschrijving;
     }
 
-    public String getPrijs() {
+    public int getPrijs() {
         return prijs;
     }
 
-    public void setPrijs(String prijs) {
+    public void setPrijs(int prijs) {
         this.prijs = prijs;
     }
 
@@ -65,6 +65,9 @@ public class Product {
     public void setOvkaarten(List<OVChipkaart> ovkaarten) {
         this.ovkaarten = ovkaarten;
     }
+
+    public void addOVChipkaarten(OVChipkaart ov) { this.ovkaarten.add(ov); }
+
 
     @Override
     public String toString() {
